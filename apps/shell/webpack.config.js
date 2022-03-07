@@ -22,6 +22,7 @@ sharedMappings.register(
   tsConfigPath,
   [
     /* mapped paths to share */
+    '@mf-app/shared/data-store'
   ],
   workspaceRootPath
 );
