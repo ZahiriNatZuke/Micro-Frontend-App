@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { GalleryFacade } from '@mf-app/shared/data-store';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'mf-app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
-  constructor() { }
+  cats = this.galleryFacade.selectedCats$.pipe(
+    map((selectedCats: any) => Array.from(selectedCats.values()))) as any;
 
-  ngOnInit(): void {
+  constructor(private galleryFacade: GalleryFacade) {
   }
 
 }
